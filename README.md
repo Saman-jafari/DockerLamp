@@ -1,10 +1,8 @@
-# Native docker-based local environment for Drupal
+# Native docker-based local environment for 
 
-Use this Docker compose file to spin up local environment for [Drupal](https://wwww.drupal.org) with a *native Docker app*
 
 This docker setup works with **Debian 9**, **Varnish 5.1/5.0/4.0**, **Apache 2.4**, **PHP 7.2/7.1/7.0/5.6**, **MySQL 8.0/5.7/5.6/5.5/** and **Redis 3.2/3.0**. This setup have **Mailhog** and **phpMyAdmin** as helper tools.
 
-This is [keopx](https://www.keopx.net) Docker **[Drupal](https://wwww.drupal.org)** optimized images for apache-php with varnish and MySQL.
 
 ---
 
@@ -14,7 +12,6 @@ This is [keopx](https://www.keopx.net) Docker **[Drupal](https://wwww.drupal.org
 * [Containers](#containers)
 * [Custom settings](#custom-settings)
     * [Varnish](#varnish-1)
-        * [drupal-base.vcl for Drupal](#drupal-basevcl-for-drupal)
         * [Environment](#environment)
     * [Apache PHP](#apache-php-1)
         * [Web Data Volume](#web-data-volume)
@@ -35,7 +32,6 @@ This is [keopx](https://www.keopx.net) Docker **[Drupal](https://wwww.drupal.org
 
 ## Overview
 
-The [Drupal](https://wwww.drupal.org) bundle consist of the following containers:
 
 | Container | Version | Service name | Image | Public Port | Enabled by default |
 | --------- | ------- | ------------ | ----- | ----------- | ------------------ |
@@ -122,38 +118,8 @@ This is a default image. Use to have easy mailsender and mail watcher to test em
 
 By default we can use a standard _default.vcl_.
 
-In addition, you can check a varnish vcl for [Drupal](https://www.drupal.org) in [drupal-base.vcl](https://github.com/keopx/docker-lamp/blob/master/config/varnish/4.0/drupal-base.vcl)
 
-#### drupal-base.vcl for Drupal
 
-You can check a special varnish vcl file for [Drupal](https://wwww.drupal.org) **drupal-base.vcl** based in [NITEMAN](https://github.com/NITEMAN) config file: [drupal-base.vcl](https://github.com/NITEMAN/varnish-bites/blob/master/varnish4/drupal-base.vcl)
-
-**Note**: drupal-base.vcl uses MIT license.
-
-If you like to add **drupal-base.vcl** add this lines. Added by default to 4.0 version.
-     
-```yml
-    volumes:
-      - ./config/varnish/4.0/drupal-base.vcl:/etc/varnish/default.vcl
-```
-
-#### 4.0 version
-
-If you need work with varnish 4.* select one file from 4.0 directoy.
-
-```yml
-    volumes:
-      - ./config/varnish/4.0/opt-drupal.vcl:/etc/varnish/default.vcl
-```
-
-#### 5.0 version
-
-If you need work with varnish 5.* select 5.0 directoy file.
-
-```yml
-    volumes:
-      - ./config/varnish/5.0/opt-drupal.vcl:/etc/varnish/default.vcl
-```
 
 
 
@@ -225,7 +191,6 @@ Use some setup by default. You can (un)comment to change behaviour.
 
 You can see **two _php.ini_ templates** with different setup, [development](https://github.com/keopx/docker-lamp/blob/master/config/php/php.ini-development) and [production](https://github.com/keopx/docker-lamp/blob/master/config/php/php.ini-production) setup.
 
-In addition, you can check **apcu**, **opcache**, **xdebug** and **xhprof** configuration, the same file for php 7.2, 7.1, 7.0 and 5.6, and  **opcache** recomended file version for [Drupal](https://wwww.drupal.org).
 
 ##### PHP >= 5.6 (7.0/7.1/7.2)
 
@@ -349,7 +314,7 @@ You can check [my.cnf](https://github.com/keopx/docker-lamp/blob/master/config/m
 
 ### Redis
 
-Use Redis for backend cache system for Drupal.
+Use Redis for backend cache system.
 
 Use to connect to Redis **redis** instead *localhost* and port *6379*.
 
