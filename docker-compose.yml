@@ -36,6 +36,7 @@ services:
     volumes:
       - ./data/www:/var/www # Data.
       - ./config/vhosts:/etc/apache2/sites-enabled
+#      - ./config/apache/apache2.conf:/etc/apache2/apache2.conf
       ### See: https://github.com/keopx/docker-lamp for more information.
       ## php.ini for php 7.x and remove environment varibles.
       - ./config/php/7.0/php.ini:/etc/php/7.0/apache2/php.ini
